@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+<script>
+ 
+ 
+  
+      function testVariable() {
+          var strText = document.getElementById("fname").value;          
+          var strText1 = document.getElementById("Qual").value;
+          var strText2 = document.getElementById("hobi").value;
+  
+          var strText3 = document.querySelector("#newInputBox").value;
+  
+          var strText4 = "& "+strText3;
+
+          
+  
+      
+         result1= `I, ${strText}, would like to apply for an internship at your organisation.
+                    My Qualification is ${strText1}.
+                    My hobbies are ${strText2} ${strText4} . (If user enters only two hobbies 
+                    then it should be __ & _, if user enters only one hobby it should be___. 
+                    Make sure punctuations are given correctly)
+                    Thanking you,
+                    
+                    Your Sincerely
+                    ${strText}`
+        
+         document.getElementById('Data').textContent = result1;
+             
+      }
+      var count=0;
+      function add(){
+        if (count<1){
+        let div = document.getElementById("box")
+        div.innerHTML +=`<input type='text' id='newInputBox' onkeyup=testVariable()>`
+        count++;
+        }
+    }
+
+    
+    </script>
+    <style>
+      
+      .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .data{
+        border:  2px solid  black;
+      }
+
+      button{
+        color:red;
+        margin-left: 45%
+      }
+
+    </style>
+</head>
+<body>
+    
+  <div class="container">
+    <h2>HTML Forms</h2>
+
+ 
+  <label for="fname">Name:</label><br>
+  <input type="text" id="fname" name="fname" onkeyup=" testVariable()" ><br>
+  <label for="lname">Qualification</label><br>
+  <input type="text" id="Qual" name="lname" onkeyup=" testVariable()" ><br>
+  <label for="lname">Hobies</label><br>
+  <input type="text" id="hobi" name="lname"  onkeyup=" testVariable()">
+  <button onclick="add()"> + Add Hobies </button><div id="box"></div>
+  <div id="box"></div>
+  
+
+ 
+<div class="data">
+  <h1 id="Data"> </h1>
+
+</div>
+</div>
+
+</body>
+</html>
